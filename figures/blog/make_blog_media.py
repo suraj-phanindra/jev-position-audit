@@ -217,22 +217,38 @@ def charts():
 
 
 def animation():
+    """About 45 s at 10 fps. Each scene holds long enough to read, count-ups end with a hold."""
     fig = plt.figure(figsize=(8, 4.5), dpi=110)
     ax = fig.add_axes([0, 0, 1, 1]); fig.patch.set_facecolor(BG)
-    seq = ([('data', i) for i in range(22)] + [('pairs', i) for i in range(26)] + [('swap1', i) for i in range(16)] +
-           [('swap', i) for i in range(20)] + [('swap2', i) for i in range(16)] + [('agg', i) for i in range(34)] +
-           [('gap', i) for i in range(30)] + [('conf', i) for i in range(44)])
+    seq = ([('data', i) for i in range(55)] +       # stage 1
+           [('pairs', i) for i in range(65)] +      # stage 2
+           [('order1', i) for i in range(30)] +     # stage 3: order 1 shown
+           [('swap', i) for i in range(20)] +       # stage 3: copies swap seats
+           [('order2', i) for i in range(30)] +     # stage 3: order 2 shown
+           [('jev', i) for i in range(70)] +        # stage 4: Jev's probabilities for both orders
+           [('agg', i) for i in range(60)] +        # stage 5: all 212 tasks
+           [('gap', i) for i in range(55)] +        # stage 5: close calls
+           [('conf', i) for i in range(75)])        # stage 5: decisions flip when unsure
 
     def tag(n):
-        ax.add_patch(FancyBboxPatch((0.02, 0.9), 0.23, 0.075, boxstyle='round,pad=0.005,rounding_size=0.015',
-                                    fc=STAGE[n - 1], ec=STAGE_EDGE[n - 1], lw=1.8))
-        ax.text(0.135, 0.937, 'Stage ' + STEPS[n - 1][0].replace('  ', ': '), ha='center', va='center', fontsize=9.5,
-                weight='bold', color=INK)
+        ax.text(0.03, 0.94, 'Stage ' + STEPS[n - 1][0].replace('  ', ': '), ha='left', va='center', fontsize=10,
+                weight='bold', color=INK, bbox=dict(boxstyle='round,pad=0.45,rounding_size=0.6', fc=STAGE[n - 1],
+                                                    ec=STAGE_EDGE[n - 1], lw=1.8))
 
     def answer_card(x, y, title, col, text, w=0.34, h=0.22):
         ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle='round,pad=0.01,rounding_size=0.02', fc=CARD, ec=col, lw=2.5))
         ax.text(x + w / 2, y + h - 0.045, title, ha='center', fontsize=10.5, weight='bold', color=col)
         ax.text(x + w / 2, y + h / 2 - 0.035, text, ha='center', va='center', fontsize=9.5, color=INK)
+
+    def prob_bar(y, p, label):
+        ax.text(0.08, y + 0.075, label, fontsize=10, color=INK, weight='bold')
+        ax.add_patch(Rectangle((0.08, y), 0.84 * p, 0.055, fc=FIRST))
+        ax.add_patch(Rectangle((0.08 + 0.84 * p, y), 0.84 * (1 - p), 0.055, fc=SECOND))
+        ax.plot([0.5, 0.5], [y - 0.015, y + 0.07], color=INK, ls='--', lw=1)
+        ax.text(0.09, y + 0.0275, f'1st slot {100 * p:.1f}%', color='white', fontsize=10, weight='bold', va='center')
+        ax.text(0.91, y + 0.0275, f'2nd slot {100 * (1 - p):.1f}%', color='white', fontsize=10, weight='bold', va='center', ha='right')
+
+    text = 'The word that does not belong\nwith the others is "engine".'
 
     def draw(k):
         ax.clear(); ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis('off')
@@ -242,13 +258,13 @@ def animation():
             ax.text(0.5, 0.8, 'Start from answers that humans already rated', ha='center', fontsize=13.5, weight='bold', color=INK)
             for j, (name, n, what) in enumerate((('MT-Bench', 64, 'chat answers, human votes'), ('HANNA', 75, 'stories, coherence ratings'),
                                                  ('SummEval', 73, 'summaries, expert ratings'))):
-                if i >= j * 5:
+                if i >= j * 8:
                     x = 0.06 + j * 0.31
                     ax.add_patch(FancyBboxPatch((x, 0.33), 0.27, 0.3, boxstyle='round,pad=0.01,rounding_size=0.02', fc=STAGE[0], ec=STAGE_EDGE[0], lw=2))
                     ax.text(x + 0.135, 0.56, name, ha='center', fontsize=13, weight='bold', color=INK)
                     ax.text(x + 0.135, 0.47, f'{n} tasks', ha='center', fontsize=11.5, color=INK)
                     ax.text(x + 0.135, 0.39, what, ha='center', fontsize=9, color=MUTED)
-            if i > 14:
+            if i >= 24:
                 ax.text(0.5, 0.18, '212 tasks in total', ha='center', fontsize=12, color=INK, weight='bold')
         elif phase == 'pairs':
             tag(2)
@@ -256,41 +272,43 @@ def animation():
             ax.text(0.5, 0.72, 'Example task: Which word does not belong with the others? tyre, steering wheel, car, engine',
                     ha='center', fontsize=9.5, color=MUTED)
             labels = [('gap 0', 'the same answer\ntwice (fair = 50/50)'), ('gap 1', 'humans saw almost\nno difference'),
-                      ('gap 2', ''), ('gap 3', ''), ('gap 4', 'humans saw a\nclear winner')]
+                      ('gap 2', 'humans saw a\nsmall difference'), ('gap 3', 'humans saw a\nbig difference'),
+                      ('gap 4', 'humans saw a\nclear winner')]
             for j, (g, d) in enumerate(labels):
-                if i >= j * 4:
+                if i >= j * 6:
                     x = 0.05 + j * 0.185
                     ax.add_patch(FancyBboxPatch((x, 0.36), 0.16, 0.24, boxstyle='round,pad=0.008,rounding_size=0.02',
                                                 fc=STAGE[1], ec=STAGE_EDGE[1], lw=3 if j == 0 else 2))
                     ax.text(x + 0.08, 0.54, g, ha='center', fontsize=12, weight='bold', color=INK)
                     ax.text(x + 0.08, 0.43, d, ha='center', va='center', fontsize=8.2, color=INK)
-            ax.text(0.5, 0.2, 'Gap 0 is the cleanest test: any preference must come from order alone.', ha='center', fontsize=10.5, color=INK)
-        elif phase in ('swap1', 'swap', 'swap2'):
-            ax.text(0.5, 0.82, 'Same answer, shown twice, in both orders', ha='center', fontsize=13.5, weight='bold', color=INK)
-            tag(3 if phase == 'swap' else 4)
-            t = 0 if phase == 'swap1' else (1 if phase == 'swap2' else (1 - np.cos(np.pi * i / 19)) / 2)
+            if i >= 32:
+                ax.text(0.5, 0.2, 'Gap 0 is the cleanest test: any preference must come from order alone.', ha='center', fontsize=10.5, color=INK)
+        elif phase in ('order1', 'swap', 'order2'):
+            tag(3)
+            ax.text(0.5, 0.8, 'Show the same pair in both orders', ha='center', fontsize=13.5, weight='bold', color=INK)
+            t = 0 if phase == 'order1' else (1 if phase == 'order2' else (1 - np.cos(np.pi * i / 19)) / 2)
             xa = 0.08 + t * 0.5; xb = 0.58 - t * 0.5
-            ya = 0.45 + 0.1 * np.sin(np.pi * t); yb = 0.45 - 0.1 * np.sin(np.pi * t)
-            text = 'The word that does not belong\nwith the others is "engine".'
+            ya = 0.42 + 0.1 * np.sin(np.pi * t); yb = 0.42 - 0.1 * np.sin(np.pi * t)
             for x, y, name in ((xa, ya, 'copy A'), (xb, yb, 'copy B')):
                 answer_card(x, y, name, FIRST if x < 0.33 else SECOND, text)
-            ax.text(0.25, 0.39, '1st slot', ha='center', fontsize=10, color=FIRST, weight='bold')
-            ax.text(0.75, 0.39, '2nd slot', ha='center', fontsize=10, color=SECOND, weight='bold')
-            if phase != 'swap':
-                p = IDENT['order1'] if phase == 'swap1' else IDENT['order2']
-                msg = ('Order 1: A first. Jev returns a probability for each copy.' if phase == 'swap1'
-                       else 'Order 2: B first. The first slot still gets more.')
-                ax.text(0.5, 0.25, msg, ha='center', fontsize=10, color=INK)
-                ax.add_patch(Rectangle((0.08, 0.13), 0.84 * p, 0.07, fc=FIRST))
-                ax.add_patch(Rectangle((0.08 + 0.84 * p, 0.13), 0.84 * (1 - p), 0.07, fc=SECOND))
-                ax.plot([0.5, 0.5], [0.11, 0.22], color=INK, ls='--', lw=1)
-                ax.text(0.08, 0.06, f'1st slot: {100 * p:.1f}%', color=FIRST, fontsize=11, weight='bold')
-                ax.text(0.92, 0.06, f'2nd slot: {100 * (1 - p):.1f}%', color=SECOND, fontsize=11, weight='bold', ha='right')
-                ax.text(0.5, 0.015, 'dashed line = fair 50/50 split', ha='center', fontsize=8.5, color=MUTED)
+            ax.text(0.25, 0.35, '1st slot', ha='center', fontsize=10, color=FIRST, weight='bold')
+            ax.text(0.75, 0.35, '2nd slot', ha='center', fontsize=10, color=SECOND, weight='bold')
+            msg = {'order1': 'Order 1: copy A first', 'swap': 'Swap the seats...', 'order2': 'Order 2: copy B first'}[phase]
+            ax.text(0.5, 0.2, msg, ha='center', fontsize=11.5, color=INK, weight='bold')
+            ax.text(0.5, 0.12, 'Every request is also asked twice, to measure noise.', ha='center', fontsize=9.5, color=MUTED)
+        elif phase == 'jev':
+            tag(4)
+            ax.text(0.5, 0.8, 'Jev gives each copy a probability', ha='center', fontsize=13.5, weight='bold', color=INK)
+            prob_bar(0.55, IDENT['order1'], 'Order 1 (copy A first)')
+            if i >= 20:
+                prob_bar(0.32, IDENT['order2'], 'Order 2 (copy B first)')
+            if i >= 35:
+                ax.text(0.5, 0.15, 'Identical answers, yet the 1st slot wins both times.', ha='center', fontsize=11.5, color=INK, weight='bold')
+                ax.text(0.5, 0.07, 'dashed line = fair 50/50 split', ha='center', fontsize=9, color=MUTED)
         elif phase == 'agg':
             tag(5)
             ax.text(0.5, 0.8, 'Repeat for all 212 tasks: the first copy wins', ha='center', fontsize=13.5, weight='bold', color=INK)
-            frac = min(1, (i + 1) / 20)
+            frac = min(1, (i + 1) / 25)
             for j, (name, v, col) in enumerate((('Choice', 98.6, CHOICE), ('Noul', 88.7, NOUL), ('Score', 57.5, SCORE))):
                 y = 0.58 - j * 0.16
                 ax.text(0.06, y + 0.03, name, fontsize=12, weight='bold', color=col, va='center')
@@ -303,16 +321,16 @@ def animation():
             ax.text(0.5, 0.8, 'The order effect is biggest on close calls', ha='center', fontsize=13.5, weight='bold', color=INK)
             D = json.load(open(PAPER_DATA))
             vals = [g['estimate'] for g in sorted([g for g in D['gap_by_bin'] if g['kind'] == 'choice'], key=lambda g: g['gap_bin'])]
-            frac = min(1, (i + 1) / 18)
+            frac = min(1, (i + 1) / 22)
             for j, v in enumerate(vals):
                 x = 0.13 + j * 0.16; hgt = 0.45 * v / max(vals) * frac
                 ax.add_patch(Rectangle((x, 0.2), 0.1, hgt, fc=CHOICE))
-                ax.text(x + 0.05, 0.13, ['identical', 'closest', '2', '3', 'clearest'][j], ha='center', fontsize=9.5, color=INK)
-            ax.text(0.5, 0.05, 'Choice: size of the order effect by human-rated quality gap', ha='center', fontsize=9.5, color=MUTED)
+                ax.text(x + 0.05, 0.13, ['gap 0', 'gap 1', 'gap 2', 'gap 3', 'gap 4'][j], ha='center', fontsize=9.5, color=INK)
+            ax.text(0.5, 0.05, 'Choice: how much the order moves the probabilities, by human-rated gap', ha='center', fontsize=9.5, color=MUTED)
         else:
             tag(5)
             ax.text(0.5, 0.8, 'Order flips decisions mostly when Jev is unsure', ha='center', fontsize=13.5, weight='bold', color=INK)
-            frac = min(1, (i + 1) / 20)
+            frac = min(1, (i + 1) / 25)
             for j, (name, cross, same) in enumerate((('confidence < 0.6', 47.5, 10.0), ('0.6 to 0.9', 10.8, 0.8), ('0.9 or above', 0.1, 0.02))):
                 x = 0.12 + j * 0.29
                 hc, hs = 0.5 * cross / 50 * frac, 0.5 * same / 50 * frac
@@ -325,9 +343,12 @@ def animation():
 
     anim = FuncAnimation(fig, draw, frames=len(seq), interval=100)
     anim.save(OUT + 'audit_walkthrough.gif', writer=PillowWriter(fps=10))
-    keys = [21, 47, 63, 95, 129, 159, len(seq) - 1]
+    ends, acc = [], 0
+    for name in ('data', 'pairs', 'order1', 'order2', 'jev', 'agg', 'gap', 'conf'):
+        idx = max(n for n, (p, _) in enumerate(seq) if p == name)
+        ends.append(idx)
     frames = []
-    for kk in keys:
+    for kk in ends:
         draw(kk); fig.canvas.draw()
         frames.append(Image.frombuffer('RGBA', fig.canvas.get_width_height(), fig.canvas.buffer_rgba()).convert('RGB'))
     w, h = frames[0].size
