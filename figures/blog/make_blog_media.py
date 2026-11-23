@@ -2,7 +2,7 @@
 
 Colour rules (same thing, same colour, in every visual):
   question types: Choice blue, Noul orange, Score green
-  slots:          first slot gold, second slot slate
+  slots:          first position gold, second position slate
   noise floor:    light grey
 Numbers: worked examples from posthoc-20261118/worked-example-candidates.json (MT-Bench, Choice,
 legacy format, mean of 16 Jev calls per order); charts from results/paper-data-amendment010.json
@@ -50,7 +50,7 @@ STEPS = [
     ('2  Build pairs', 'identical copy (a true tie)\n+ pairs with small to large\nhuman-rated quality gaps'),
     ('3  Swap and repeat', 'show A then B, and B then A\nask every request twice\nalso swap question order, format'),
     ('4  Ask the judges', 'Jev 1.13: probabilities\nHaiku 4.5, DeepSeek V4 Flash:\n20 votes on 40 tasks'),
-    ('5  Measure', 'shift toward the first slot\ndecisions that flip\nchange with the quality gap'),
+    ('5  Measure', 'shift toward the first position\ndecisions that flip\nchange with the quality gap'),
 ]
 
 
@@ -118,8 +118,8 @@ def worked():
         ax.add_patch(Rectangle((x0, y), w * p, h, fc=FIRST, ec='none'))
         ax.add_patch(Rectangle((x0 + w * p, y), w * (1 - p), h, fc=SECOND, ec='none'))
         ax.plot([x0 + w / 2] * 2, [y - 0.06, y + h + 0.06], color=INK, lw=1.2, ls='--')
-        ax.text(x0, y - 0.07, f'1st slot, {lab1}: {100 * p:.1f}%', color=FIRST, fontsize=9.6, weight='bold', va='top')
-        ax.text(x0 + w, y - 0.07, f'2nd slot, {lab2}: {100 * (1 - p):.1f}%', color=SECOND, fontsize=9.6, weight='bold',
+        ax.text(x0, y - 0.07, f'First position, {lab1}: {100 * p:.1f}%', color=FIRST, fontsize=9.6, weight='bold', va='top')
+        ax.text(x0 + w, y - 0.07, f'Second position, {lab2}: {100 * (1 - p):.1f}%', color=SECOND, fontsize=9.6, weight='bold',
                 va='top', ha='right')
 
     def panel(y0, head, task, a, b, rows, verdict, bh):
@@ -133,15 +133,15 @@ def worked():
             bar(y, p, l1, l2, r); y -= 0.75
         ax.text(0.35, y + 0.2, verdict, fontsize=10.5, color=INK, va='top', style='italic')
 
-    panel(13.55, 'A. Clear winner: the decision holds in both orders', STARTUP_TASK,
+    panel(13.55, 'Clear winner: the decision holds in both orders', STARTUP_TASK,
           ('Answer R (right)', STARTUP_RIGHT), ('Answer W (wrong)', STARTUP_WRONG),
           [(1.0, 'R', 'W', 'Order 1'), (0.0, 'W', 'R', 'Order 2')],
           'Jev gives R 100% in both orders. Order cannot move a confident decision.', 1.3)
-    panel(8.82, 'B. Same answer twice: the first copy wins', ENGINE_TASK,
+    panel(8.82, 'Same answer twice: the first copy wins', ENGINE_TASK,
           ('Copy 1', ENGINE_SHORT), ('Copy 2 (identical)', ENGINE_SHORT),
           [(IDENT['order1'], 'copy 1', 'copy 2', 'Order 1'), (IDENT['order2'], 'copy 2', 'copy 1', 'Order 2')],
-          'Jev was told to split 50/50 when answers are equally good. The first slot wins both times.', 0.95)
-    panel(4.62, 'C. Close call: the decision flips with the order', ENGINE_TASK,
+          'Jev was told to split 50/50 when answers are equally good. The first position wins both times.', 0.95)
+    panel(4.62, 'Close call: the decision flips with the order', ENGINE_TASK,
           ('Answer S (short)', ENGINE_SHORT), ('Answer E (explains why)', ENGINE_LONG),
           [(NEAR['short_first'], 'S', 'E', 'Order 1'), (1 - NEAR['short_second'], 'E', 'S', 'Order 2')],
           'Human raters tied these two answers. Whichever comes second wins, so the decision flips.', 1.6)
@@ -169,7 +169,7 @@ def charts():
         ax.text(k, 100 * r['ci95'][1] + 0.5, f"{100 * r['estimate']:.1f}", ha='center', fontsize=10, weight='bold', color=c)
     ax.axhline(0, color=INK, lw=0.8)
     ax.set_xticks(range(3)); ax.set_xticklabels(['Choice', 'Noul', 'Score'])
-    ax.set_ylabel('Shift toward 1st slot\n(probability points, 0 = fair)')
+    ax.set_ylabel('Shift toward first position\n(probability points, 0 = fair)')
     ax.legend(title='single dataset', frameon=False, fontsize=8, title_fontsize=8, loc='upper right')
     fig.tight_layout(); save(fig, 'blog_f1_primacy.png')
     fig, ax = plt.subplots(figsize=(6.4, 3.8), dpi=200)
@@ -210,7 +210,7 @@ def charts():
     ax.axhline(0, color=INK, lw=0.8)
     ax.set_xticks(range(5)); ax.set_xticklabels(['0\nidentical', '1\nclosest', '2', '3', '4\nclearest'])
     ax.set_xlabel('Human-rated quality gap between the two answers')
-    ax.set_ylabel('Shift toward 1st slot\n(probability points)')
+    ax.set_ylabel('Shift toward first position\n(probability points)')
     ax.text(0.98, 0.04, 'post hoc analysis', transform=ax.transAxes, ha='right', fontsize=9, color=MUTED, style='italic')
     ax.legend(frameon=False, fontsize=9)
     fig.tight_layout(); save(fig, 'blog_posthoc_direction.png')
@@ -245,8 +245,8 @@ def animation():
         ax.add_patch(Rectangle((0.08, y), 0.84 * p, 0.055, fc=FIRST))
         ax.add_patch(Rectangle((0.08 + 0.84 * p, y), 0.84 * (1 - p), 0.055, fc=SECOND))
         ax.plot([0.5, 0.5], [y - 0.015, y + 0.07], color=INK, ls='--', lw=1)
-        ax.text(0.09, y + 0.0275, f'1st slot {100 * p:.1f}%', color='white', fontsize=10, weight='bold', va='center')
-        ax.text(0.91, y + 0.0275, f'2nd slot {100 * (1 - p):.1f}%', color='white', fontsize=10, weight='bold', va='center', ha='right')
+        ax.text(0.09, y + 0.0275, f'First position {100 * p:.1f}%', color='white', fontsize=10, weight='bold', va='center')
+        ax.text(0.91, y + 0.0275, f'Second position {100 * (1 - p):.1f}%', color='white', fontsize=10, weight='bold', va='center', ha='right')
 
     text = 'The word that does not belong\nwith the others is "engine".'
 
@@ -291,8 +291,8 @@ def animation():
             ya = 0.42 + 0.1 * np.sin(np.pi * t); yb = 0.42 - 0.1 * np.sin(np.pi * t)
             for x, y, name in ((xa, ya, 'copy A'), (xb, yb, 'copy B')):
                 answer_card(x, y, name, FIRST if x < 0.33 else SECOND, text)
-            ax.text(0.25, 0.35, '1st slot', ha='center', fontsize=10, color=FIRST, weight='bold')
-            ax.text(0.75, 0.35, '2nd slot', ha='center', fontsize=10, color=SECOND, weight='bold')
+            ax.text(0.25, 0.35, 'First position', ha='center', fontsize=10, color=FIRST, weight='bold')
+            ax.text(0.75, 0.35, 'Second position', ha='center', fontsize=10, color=SECOND, weight='bold')
             msg = {'order1': 'Order 1: copy A first', 'swap': 'Swap the seats...', 'order2': 'Order 2: copy B first'}[phase]
             ax.text(0.5, 0.2, msg, ha='center', fontsize=11.5, color=INK, weight='bold')
             ax.text(0.5, 0.12, 'Every request is also asked twice, to measure noise.', ha='center', fontsize=9.5, color=MUTED)
@@ -303,7 +303,7 @@ def animation():
             if i >= 20:
                 prob_bar(0.32, IDENT['order2'], 'Order 2 (copy B first)')
             if i >= 35:
-                ax.text(0.5, 0.15, 'Identical answers, yet the 1st slot wins both times.', ha='center', fontsize=11.5, color=INK, weight='bold')
+                ax.text(0.5, 0.15, 'Identical answers, yet the first position wins both times.', ha='center', fontsize=11.5, color=INK, weight='bold')
                 ax.text(0.5, 0.07, 'dashed line = fair 50/50 split', ha='center', fontsize=9, color=MUTED)
         elif phase == 'agg':
             tag(5)
