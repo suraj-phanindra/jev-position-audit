@@ -1,0 +1,65 @@
+[
+  {
+    "file": "stimuli/raw/mtbench.parquet",
+    "url": "https://huggingface.co/datasets/lmsys/mt_bench_human_judgments/resolve/f7d2896d2cc5d80f8b55c2bbc722613555233c25/data/human-00000-of-00001-25f4910818759289.parquet",
+    "sha256": "4877bc46a40929f4082c3c79593700fb897b1d6c7f4c473032694a01322f5769",
+    "bytes": 738612,
+    "retrieved_date": "2026-09-21"
+  },
+  {
+    "file": "stimuli/raw/mtbench_README.md",
+    "url": "https://huggingface.co/datasets/lmsys/mt_bench_human_judgments/raw/f7d2896d2cc5d80f8b55c2bbc722613555233c25/README.md",
+    "sha256": "4ef7507ea4d9b7b9e85db9c31742e5295c2f6d1b8c712d392705fd641c348fc4",
+    "bytes": 2000,
+    "retrieved_date": "2026-09-21"
+  },
+  {
+    "file": "stimuli/raw/hanna.csv",
+    "url": "https://raw.githubusercontent.com/dig-team/hanna-benchmark-asg/282f27536a5d05ad4ce14298abcd70c45668fed2/hanna_stories_annotations.csv",
+    "sha256": "ef59054d27fa32def06cfdc57243b1dd09c7e71f40b6d9d43fecfbf60e59026b",
+    "bytes": 13219167,
+    "retrieved_date": "2026-09-21"
+  },
+  {
+    "file": "stimuli/raw/hanna_README.md",
+    "url": "https://raw.githubusercontent.com/dig-team/hanna-benchmark-asg/282f27536a5d05ad4ce14298abcd70c45668fed2/README.md",
+    "sha256": "3bc0b8a0ee7135b38d2d50c5910a90a2965cbede14be954b927d43c5b17eaabd",
+    "bytes": 8439,
+    "retrieved_date": "2026-09-21"
+  },
+  {
+    "file": "stimuli/raw/hanna_LICENSE",
+    "url": "https://raw.githubusercontent.com/dig-team/hanna-benchmark-asg/282f27536a5d05ad4ce14298abcd70c45668fed2/LICENSE",
+    "sha256": "bc03dc792290fc9ec16bd6772b1e5e88038541f323c63762c988cec07a017146",
+    "bytes": 1065,
+    "retrieved_date": "2026-09-21"
+  },
+  {
+    "file": "stimuli/raw/summeval.jsonl",
+    "url": "https://storage.googleapis.com/sfr-summarization-repo-research/model_annotations.aligned.jsonl",
+    "sha256": "f0d4166e0cdeb439b387c4449634b067b7e9f721b9ef4c2b722f6b7550d3d6ab",
+    "bytes": 5839062,
+    "retrieved_date": "2026-09-21"
+  },
+  {
+    "file": "stimuli/raw/summeval_README.md",
+    "url": "https://raw.githubusercontent.com/Yale-LILY/SummEval/81b59ad53d63cb6009764240853c91235a44e238/README.md",
+    "sha256": "5de6b266c252b00c722d33d6745c45647bf6512f993f2137637547e60c7df474",
+    "bytes": 15134,
+    "retrieved_date": "2026-09-21"
+  },
+  {
+    "file": "stimuli/raw/summeval_LICENSE",
+    "url": "https://raw.githubusercontent.com/Yale-LILY/SummEval/81b59ad53d63cb6009764240853c91235a44e238/LICENSE",
+    "sha256": "277a0ce9704840854ff8d31b8a6adbc4af73f5688eb4a8820e372ed10fff850e",
+    "bytes": 1156,
+    "retrieved_date": "2026-09-21"
+  },
+  {
+    "file": "stimuli/raw/cnndm_test.parquet",
+    "url": "https://huggingface.co/datasets/abisee/cnn_dailymail/resolve/96df5e686bee6baa90b8bee7c28b81fa3fa6223d/3.0.0/test-00000-of-00001.parquet",
+    "sha256": "04e322d2634a96dba76bf9a6294fbbe48e0b36abeae43f13d86ba2c3bebffe4e",
+    "bytes": 30000471,
+    "retrieved_date": "2026-09-21"
+  }
+]

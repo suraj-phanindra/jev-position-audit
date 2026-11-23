@@ -1,0 +1,292 @@
+{
+ "E2": {
+  "note": "Positive A1 = primacy. For two-option Choice, first-slot mass exceeds one half exactly when the stimulus contrast is positive.",
+  "rows": [
+   {
+    "kind": "choice",
+    "stimuli": 212,
+    "share_primacy": 0.9858490566037735,
+    "share_recency": 0.014150943396226415,
+    "share_zero": 0.0,
+    "share_primacy_MTBench": 1.0,
+    "share_primacy_HANNA": 0.9733333333333334,
+    "share_primacy_SummEval": 0.9863013698630136
+   },
+   {
+    "kind": "noul",
+    "stimuli": 212,
+    "share_primacy": 0.8867924528301887,
+    "share_recency": 0.06132075471698113,
+    "share_zero": 0.05188679245283019,
+    "share_primacy_MTBench": 0.71875,
+    "share_primacy_HANNA": 1.0,
+    "share_primacy_SummEval": 0.9178082191780822
+   },
+   {
+    "kind": "score",
+    "stimuli": 212,
+    "share_primacy": 0.5754716981132075,
+    "share_recency": 0.24528301886792453,
+    "share_zero": 0.1792452830188679,
+    "share_primacy_MTBench": 0.3125,
+    "share_primacy_HANNA": 0.8533333333333334,
+    "share_primacy_SummEval": 0.5205479452054794
+   }
+  ]
+ },
+ "E3": {
+  "note": "Choice, Probe A nonidentity, argmax decision. cross = change under state-order reversal; same = change between repeats of the same order (noise floor). Confidence = mean top-option probability at state order 0. Sources with no stimuli in a bin are omitted from that bin.",
+  "rows": [
+   {
+    "bin": "below 0.6",
+    "metric": "cross",
+    "stimuli": 59,
+    "tasks": 54,
+    "sources": [
+     "HANNA",
+     "MTBench",
+     "SummEval"
+    ],
+    "rate": 0.47478985456416006,
+    "ci95": [
+     0.3831511001215862,
+     0.567557519640853
+    ]
+   },
+   {
+    "bin": "below 0.6",
+    "metric": "same",
+    "stimuli": 59,
+    "tasks": 54,
+    "sources": [
+     "HANNA",
+     "MTBench",
+     "SummEval"
+    ],
+    "rate": 0.099556034885896,
+    "ci95": [
+     0.06979422406939768,
+     0.13168936178918814
+    ]
+   },
+   {
+    "bin": "0.6 to 0.9",
+    "metric": "cross",
+    "stimuli": 234,
+    "tasks": 142,
+    "sources": [
+     "HANNA",
+     "MTBench",
+     "SummEval"
+    ],
+    "rate": 0.10836248049789717,
+    "ci95": [
+     0.0672718412952788,
+     0.15316524958452035
+    ]
+   },
+   {
+    "bin": "0.6 to 0.9",
+    "metric": "same",
+    "stimuli": 234,
+    "tasks": 142,
+    "sources": [
+     "HANNA",
+     "MTBench",
+     "SummEval"
+    ],
+    "rate": 0.007646414156830823,
+    "ci95": [
+     0.003986961148419481,
+     0.011920135709198204
+    ]
+   },
+   {
+    "bin": "0.9 or above",
+    "metric": "cross",
+    "stimuli": 367,
+    "tasks": 185,
+    "sources": [
+     "HANNA",
+     "MTBench",
+     "SummEval"
+    ],
+    "rate": 0.001121794871794872,
+    "ci95": [
+     0.0,
+     0.0033653846153846156
+    ]
+   },
+   {
+    "bin": "0.9 or above",
+    "metric": "same",
+    "stimuli": 367,
+    "tasks": 185,
+    "sources": [
+     "HANNA",
+     "MTBench",
+     "SummEval"
+    ],
+    "rate": 0.00016025641025641026,
+    "ci95": [
+     0.0,
+     0.0004807692307692308
+    ]
+   }
+  ]
+ },
+ "E4": [
+  {
+   "cardinality": 2,
+   "uniform": 0.5,
+   "tasks": 212,
+   "first_position_mass": 0.5399526648116438,
+   "first_ci95": [
+    0.5347206640030442,
+    0.5451855508585427
+   ],
+   "last_position_mass": 0.4600473351883562,
+   "last_ci95": [
+    0.4547742708927892,
+    0.465334774127188
+   ],
+   "mean_mass_by_position": [
+    0.5399526648116438,
+    0.46004733518835605
+   ]
+  },
+  {
+   "cardinality": 3,
+   "uniform": 0.3333333333333333,
+   "tasks": 212,
+   "first_position_mass": 0.37989769707635723,
+   "first_ci95": [
+    0.37520101851851856,
+    0.3848595894374683
+   ],
+   "last_position_mass": 0.31997865376078133,
+   "last_ci95": [
+    0.3174004217005962,
+    0.32258325421740236
+   ],
+   "mean_mass_by_position": [
+    0.3798976970763572,
+    0.30006026604515473,
+    0.31997865376078133
+   ]
+  },
+  {
+   "cardinality": 5,
+   "uniform": 0.2,
+   "tasks": 212,
+   "first_position_mass": 0.24934163194444445,
+   "first_ci95": [
+    0.24526382805365296,
+    0.25358525064212334
+   ],
+   "last_position_mass": 0.1848877773021309,
+   "last_ci95": [
+    0.1834268476503044,
+    0.1863183816590563
+   ],
+   "mean_mass_by_position": [
+    0.24934163194444448,
+    0.17933095652587516,
+    0.19008452863394218,
+    0.1961070100837138,
+    0.1848877773021309
+   ]
+  },
+  {
+   "cardinality": 10,
+   "uniform": 0.1,
+   "tasks": 212,
+   "first_position_mass": 0.18128199319824964,
+   "first_ci95": [
+    0.1748249665858067,
+    0.18816970462328764
+   ],
+   "last_position_mass": 0.08348289882990868,
+   "last_ci95": [
+    0.08234255436643835,
+    0.08464601096366059
+   ],
+   "mean_mass_by_position": [
+    0.18128199319824959,
+    0.08824342774923899,
+    0.091869311738965,
+    0.09123720533675798,
+    0.09140189497716893,
+    0.09087987442922375,
+    0.09250771784627095,
+    0.09399856473554034,
+    0.09444191424086758,
+    0.08348289882990868
+   ]
+  },
+  {
+   "cardinality": 25,
+   "uniform": 0.04,
+   "tasks": 212,
+   "first_position_mass": 0.1577075734398782,
+   "first_ci95": [
+    0.14912522702625575,
+    0.16685186043569258
+   ],
+   "last_position_mass": 0.02795806744672755,
+   "last_ci95": [
+    0.027292642960426182,
+    0.0286007021641933
+   ],
+   "mean_mass_by_position": [
+    0.15770757343987826,
+    0.03938432410578386,
+    0.03695863337138508,
+    0.03802791238584474,
+    0.03659680736301369,
+    0.03658884427321157,
+    0.03558224086757991,
+    0.03586117484779299,
+    0.0338660898021309,
+    0.03617835664003045,
+    0.035791646689497726,
+    0.03568295091324201,
+    0.03478158837519026,
+    0.03530168683409437,
+    0.036185036910197865,
+    0.03633822764459666,
+    0.03380778101217657,
+    0.0329733286719939,
+    0.030482271308980218,
+    0.033335812595129376,
+    0.03333648477929984,
+    0.03332941799847792,
+    0.03455176988203957,
+    0.03529518283866057,
+    0.027958067446727547
+   ]
+  }
+ ],
+ "E5": {
+  "note": "Conservative ledger (list rates; failures at reserve). 1 unit = 1e-9 USD.",
+  "providers": {
+   "anthropic": {
+    "attempts": 81834,
+    "usd": 112.75398,
+    "usd_per_1000_successes": 1.3784105134474327
+   },
+   "together": {
+    "attempts": 81972,
+    "usd": 61.81226948,
+    "usd_per_1000_successes": 0.7556512161369192
+   },
+   "typesafe": {
+    "attempts": 494955,
+    "usd": 27.7748412,
+    "usd_per_1000_successes": 0.05613710102512693
+   }
+  },
+  "total_usd": 202.34109068,
+  "jev_usd_per_primary_test": 2.136526246153846
+ }
+}

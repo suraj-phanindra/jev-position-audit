@@ -1,0 +1,1 @@
+{"kind": "rare_symmetric", "sims": 20000, "draws": 9999, "rate_05": {"boot": 0.0227, "flip": 0.0085, "max": 0.00845}, "rate_005": {"boot": 0.00015, "flip": 0.0, "max": 0.0}, "coverage95": 0.95065, "seconds": 1194}

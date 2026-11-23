@@ -1,0 +1,26 @@
+{
+  "amendment_id": "008-http-520",
+  "recorded_at": "2026-09-25T22:35:47.671743+00:00",
+  "original_registration": "https://osf.io/4nme3/",
+  "externally_registered": false,
+  "activation_status": "recorded_before_activation",
+  "files": {
+    "amendments/008-http-520.md": "2739a1838c7bbc90940e47668d02cbfe41cd99a51545f98ab735fd46b321aaa5",
+    "preflight/amendment008.py": "004d17a03fc8287b30b9e4ad65ba83b51d6a07b6835f26138f4ef146eb12dc93",
+    "tests/test_amendment008.py": "4f526f17a404844b58678a93d2689aa81a74bd0abaa1c5cbe582506d3399767e",
+    "amendments/007-scheduled-recovery.json": "a7cfa0141cc1432f7d8850dadea5a5dc49b450f1ae7e5e1b41ea97677a389bbe",
+    "preflight/amendment001.py": "7b4bab96922b7f8e11fdf5da7a21e3503ce98b39ed0f08a231735dd69d6c8be7",
+    "preflight/main_run.py": "cbc53e873bdb37caa824889f3b40eca6b1646f944e6a6731d20524ce814f24f4",
+    "harness/billing.py": "681d9590c361b0e6a26e252444271a75c949d60583ada34abea10dc8ad7ef5e5"
+  },
+  "validation": {
+    "tests_passed": 15,
+    "command": ".venv/bin/python -m unittest tests.test_amendment008 tests.test_scheduled_recovery tests.test_operator_recovery tests.test_recovery_supervisor tests.test_scheduled_pause tests.test_billing"
+  },
+  "limits": {
+    "max_total_attempts_per_draw": 3,
+    "max_recovery_invocations_per_session": 100,
+    "max_hours_per_session": 6
+  },
+  "information_reviewed": "Retained operational failure and synthetic tests only; no main effect estimates or hypothesis tests."
+}

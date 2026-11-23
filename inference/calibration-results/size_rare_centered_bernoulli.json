@@ -1,0 +1,1 @@
+{"kind": "rare_centered_bernoulli", "sims": 20000, "draws": 9999, "rate_05": {"boot": 0.1021, "flip": 0.14235, "max": 0.1011}, "rate_005": {"boot": 0.0587, "flip": 0.07805, "max": 0.0587}, "coverage95": 0.91415, "seconds": 1200}

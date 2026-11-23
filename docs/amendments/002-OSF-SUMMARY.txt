@@ -1,0 +1,11 @@
+Operational amendment 002 — recorded locally 2026-09-23T20:21:26.412556+00:00.
+
+Repeated transient failures interrupted collection. Permit a bounded local supervisor to invoke the existing checked recovery helper, at most 100 recovery invocations over six hours per explicitly launched supervision session. The original collector still stops and drains after any error. Before resumption, all retained-response, model, hash, attempt, and budget checks remain mandatory. Invalid HTTP-200 outputs and nontransient errors cannot be redrawn through this supervisor. All attempts and recovery events are retained.
+
+The supervisor respects existing cooldowns and otherwise waits at least 60 seconds after a terminal failure, doubled for the second failed attempt of the same scheduled request. The original limit is still three total attempts per draw. Requests, allocation, models, pacing, worker counts, scientific estimands, analysis, and the shared $300 accounting cap remain unchanged. It does not replace the external statistics review.
+
+This is a post-registration operational change; its local record precedes activation. This OSF update must not be represented as preceding any supervised calls that occurred before the update's actual timestamp. Only status, validity, usage, error, and request-metadata diagnostics informed the decision; no main effect estimates or hypothesis tests had been computed.
+
+Original registration INDEX SHA-256: 6f91554686e9e81fd18e47c22eb282dac9ac4a7d736faa793d0fb8f803bb8df0
+Amendment 002 JSON SHA-256: 663cb281c534f7863cf72d90eb9e7b4cb8512a4bc5c45ced2bfc251259892744
+Amendment files and hashes are retained locally and will accompany the public reproducibility release. The original registered ZIP is unchanged.

@@ -1,0 +1,21 @@
+{
+  "amendment_id": "004-scheduled-pause",
+  "recorded_at": "2026-09-23T22:04:56.561417+00:00",
+  "original_registration": "https://osf.io/4nme3/",
+  "externally_registered": false,
+  "activation_status": "prepared_not_launched",
+  "original_index_sha256": "6f91554686e9e81fd18e47c22eb282dac9ac4a7d736faa793d0fb8f803bb8df0",
+  "files": {
+    "preflight/scheduled_pause.py": "68d72248065035b9995e987a7e8b2b191e96efdb4e7f63f67def7111753c38cf",
+    "tests/test_scheduled_pause.py": "e8e0fddc237ca20571da446a27c0e2d242caca7a25d1b7c7f7025e147214d65b",
+    "amendments/004-scheduled-pause.md": "bccbadab2f981c3cbcab5c1f388037bda0231bdaaf8889b3606ffb13faa3619b"
+  },
+  "initial_control_sha256": "5ed6babb5c30369fcb679c3f0f5dfba7c6a3d37988564b4fbd7e6e5257081b21",
+  "validation": {
+    "tests_passed": 50,
+    "log": "preflight/generated/scheduled-pause-tests-20260923.log",
+    "log_sha256": "0551bc040523ca41bdcc2f962c23c4de9a4430bfe5dc95e0f9fab03f16fea692",
+    "original_registration_hash_check": "passed"
+  },
+  "information_reviewed": "Operational state and synthetic tests only; no main effect estimates or hypothesis tests."
+}

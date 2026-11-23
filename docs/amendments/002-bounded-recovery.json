@@ -1,0 +1,72 @@
+{
+  "amendment_id": "002-bounded-recovery",
+  "recorded_at": "2026-09-23T20:21:26.412556+00:00",
+  "original_registration": "https://osf.io/4nme3/",
+  "externally_registered": false,
+  "original_index_sha256": "6f91554686e9e81fd18e47c22eb282dac9ac4a7d736faa793d0fb8f803bb8df0",
+  "amendment001_sha256": "e0bad6b9566ede144e1332dccd5b7c75bb745dfbfc22e79cd6b6465bcd35f01c",
+  "limits": {
+    "max_recovery_invocations": 100,
+    "max_hours": 6,
+    "base_delay_seconds": 60,
+    "max_total_attempts_per_scheduled_draw": 3
+  },
+  "information_reviewed": "Status, model/response validity, usage, errors and request metadata; no main effect estimates or hypothesis tests.",
+  "ledger_status_counts": [
+    [
+      "anthropic",
+      null,
+      1
+    ],
+    [
+      "anthropic",
+      "reported_usage_at_conservative_list_rate",
+      10192
+    ],
+    [
+      "anthropic",
+      "unknown_charged_at_reserve",
+      2
+    ],
+    [
+      "together",
+      null,
+      2
+    ],
+    [
+      "together",
+      "reported_usage_at_conservative_list_rate",
+      7782
+    ],
+    [
+      "together",
+      "unknown_charged_at_reserve",
+      14
+    ],
+    [
+      "typesafe",
+      "reported_usage_at_conservative_list_rate",
+      2009
+    ],
+    [
+      "typesafe",
+      "unknown_charged_at_reserve",
+      18
+    ]
+  ],
+  "charged_or_reserved_usd": 19.389581558,
+  "spending_cap_usd": 300.0,
+  "files": {
+    "amendments/002-bounded-recovery.md": "fe440b3e000d5533e932576fa326f3ad46e9e66d26c94ecee2988c1d88836413",
+    "preflight/supervise_recovery.py": "66a148df9d281f3c9b9323ba751caa296c15597a385107965644f4b41503320e",
+    "preflight/recover.py": "bacc96b370da776630369de11c9d16e105c5523b7edad54d33ce9818516f5ae2",
+    "tests/test_recovery_supervisor.py": "841c55fad21f0f3a42fc5b1b5101a7f54e2edcb37ca41948a981ce9d9c5dea39",
+    "tests/test_operator_recovery.py": "eae21af2ac4ab281f28a2932c2e630521f6190efa0bf8f5e088f30f4bb28312c"
+  },
+  "validation": {
+    "test_count": 44,
+    "result": "passed",
+    "log": "preflight/generated/amendment002-tests-20260923.log",
+    "log_sha256": "04b2816895d06e92929e521f551892a8c203a4bdb97e1fcc6b59daa7517fe4f4"
+  }
+}

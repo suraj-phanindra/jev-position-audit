@@ -1,0 +1,19 @@
+{
+  "amendment_id": "006-reservation-barrier",
+  "recorded_at": "2026-09-23T22:15:39.586522+00:00",
+  "original_registration": "https://osf.io/4nme3/",
+  "externally_registered": false,
+  "original_index_sha256": "6f91554686e9e81fd18e47c22eb282dac9ac4a7d736faa793d0fb8f803bb8df0",
+  "files": {
+    "preflight/reservation_pause.py": "c7d46dfa0c77475098b3e7eb42a6a69c572faea42514a43af92fcbfaa2402c84",
+    "tests/test_reservation_pause.py": "0cdc63d25c6f26f0752cb5fc7d934893751f4ff7078b0ea8b3b83398b4c9aeb1",
+    "amendments/006-reservation-barrier.md": "c757fbeca62af7af5e0b3a4548a7d2a226bf520106ace34b50af9446b8fc95a3"
+  },
+  "validation": {
+    "tests_passed": 53,
+    "log": "preflight/generated/reservation-pause-tests-20260923.log",
+    "log_sha256": "ef214d08943c2d1b7655cb50d56320ea9b3304ad49d12ebd4f5cf0047202f836",
+    "original_registered_source": "unchanged, verified"
+  },
+  "information_reviewed": "Operational request accounting and synthetic tests only; no main inference."
+}

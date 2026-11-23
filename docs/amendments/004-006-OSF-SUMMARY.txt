@@ -1,0 +1,73 @@
+Operational update: transport pause and planned scheduled stopping
+Local record date: 23 September 2026
+Original registration: https://osf.io/4nme3/
+
+This update discloses post-registration operational amendments 004–006. They were
+prepared during main collection to permit laptop transport and a later scheduled
+stop. They do not change the registered hypotheses, stimuli, request bytes, model
+IDs, allocation, sampling, retry limits, pacing, statistical analysis, or $300
+shared spending cap. Operating diagnostics, response-validity checks, and synthetic
+tests informed the changes; no main effect estimates or hypothesis tests did.
+The times below are local operational records, not claims of external timestamping
+before this update is deposited.
+
+Amendment 004 — scheduled pause, prepared but not activated
+Recorded at 22:04:56 UTC. A separate entry point checks a timezone-aware stop time
+before issuing each new request. It reuses the registered runner's drain path,
+saves and settles already-issued calls, and writes a distinct pause receipt.
+Model-validation and billing failures remain failures. A clean cooperative pause
+exits with code 75. The contemplated overnight run has a 24 September 07:25 PDT
+(14:25 UTC) issuance cutoff, leaving a five-minute buffer before 07:30 PDT.
+Actual termination must still be verified. No collector had used this entry
+point at the checkpoint reported below.
+
+Amendment 005 — verified idle stop for the already-running Jev collector
+Recorded at 22:11:09 UTC. Automatic recovery had been disabled. A helper verified
+the collector's process group and command identity, suspended the group, and
+checked the original ledger for unsettled reservations. If a request remained,
+the helper continued the group. Only with zero outstanding reservations did it
+terminate the idle worker; the supervisor retained its actual child exit code -9.
+The response-before-settlement ordering of the original runner ensures that the
+zero-reservation checkpoint does not discard an issued request. Jev stopped at
+22:11:44 UTC. This is an intentional idle stop, not normal study completion.
+
+Amendment 006 — reversible issuance barrier for the busy reference collectors
+Recorded at 22:15:39 UTC and activated at 22:16:01 UTC. A named SQLite trigger
+temporarily rejects insertion of new request reservations. The original ledger
+transaction rolls back the attempted reservation, including its budget increment,
+before any HTTP call is submitted. The original runner then stops scheduling and
+drains existing calls. It reports the actual operator-induced IntegrityError;
+no HTTP failure or response is fabricated. Haiku and DeepSeek both finished
+draining at 22:16:02 UTC. The trigger remains installed during transport.
+
+Verified checkpoint at 22:17:23 UTC / 15:17:23 PDT
+All three collectors, their keep-awake helpers, and recovery supervision were
+stopped. All 53,638 retained attempts exactly matched ledger reservations, and
+zero reservations were unsettled. There were 53,571 successful responses:
+Jev 14,363; Haiku 22,299; DeepSeek 16,909. All prior failure records were retained.
+Request hashes, model/answer validity, unique successful draws, attempt limits,
+and original registered artifact hashes passed verification. Charge/reserve
+accounting was $41.822786986 against the unchanged $300 cap. A consistent SQLite
+backup and hashes of all closed raw-response files were saved. This is a partial
+collection checkpoint, not evidence that the full study has finished.
+
+Resume conditions
+Resume requires confirmation that the laptop is ready, checkpoint verification,
+removal of only the exact operator trigger, and an explicit activation record.
+The same ledger and retained history must be reused, with successful draws skipped.
+The old automatic recovery supervisor must not launch collectors without the
+scheduled-pause entry point. Actual restart times will be recorded separately.
+The interruption must remain visible in run-date/segment reporting. The external
+statistics review remains pending before interpretation of main results.
+
+Supporting local records
+amendments/004-scheduled-pause.md and .json
+amendments/005-idle-checkpoint.md and .json
+amendments/006-reservation-barrier.md and .json
+runs/main-v1/transport-checkpoint-20260923.json
+runs/main-v1/reservation-pause-20260923-activation.json
+
+SHA-256 of amendment JSON records
+004: e637da66fc1ab46ff08b2ba444166904d6c4eab9cb68de8b312d22ffa3d22372
+005: a863fdbc4177781480534304850f7477df05ad0e9d24f0116e6b8f58d4fc3d2d
+006: 50bb2cab68edd653bf41036be4a52c312ef0f1fa4886a695c4f9bb09f43c8477

@@ -1,0 +1,1 @@
+{"kind": "symmetric_uniform", "sims": 20000, "draws": 9999, "rate_05": {"boot": 0.0533, "flip": 0.05025, "max": 0.0501}, "rate_005": {"boot": 0.00605, "flip": 0.00475, "max": 0.0047}, "coverage95": 0.9471, "seconds": 1211}

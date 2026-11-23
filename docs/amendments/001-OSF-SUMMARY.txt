@@ -1,0 +1,7 @@
+Operational amendment 001 — 23 September 2026
+
+The registered transient-retry list omitted Jev's HTTP 529 overload response. After the runner stopped on a response identifying detail.error_type as system_overloaded, a dated operational amendment permitted an explicit retry of this specific Jev response. The three-attempt limit per scheduled draw, failure retention, $300 accounting cap, pacing, model pins, stimuli, sample allocation, and scientific analyses remain unchanged. Other HTTP-529 responses and other providers are not covered by this amendment. Invalid HTTP-200 judgments are not selectively retried.
+
+The amendment was recorded locally at 2026-09-23T18:52:45.838599Z, after 483 successful Jev screening responses and before any Jev main outcome requests. Haiku and DeepSeek main collection had begun, with 980 and 658 successful usage receipts respectively at that time. No main effect estimates or hypothesis tests had been computed. Jev resumed under the amendment at 18:53:19 UTC. This is a disclosed post-registration operational change, not part of the original archived ZIP. The original package remains unchanged.
+
+The separate recovery entry point is preflight/amendment001.py. It preserves the original package checks and records the amendment ID and hash on subsequent Jev request records. Amendment record SHA-256: e0bad6b9566ede144e1332dccd5b7c75bb745dfbfc22e79cd6b6465bcd35f01c. The dated appendix, exact code, focused check, and retained error evidence will accompany the released audit artifacts.

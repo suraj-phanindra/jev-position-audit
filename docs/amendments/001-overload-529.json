@@ -1,0 +1,35 @@
+{
+  "amendment_id": "001-overload-529",
+  "recorded_at": "2026-09-23T18:52:45.838599+00:00",
+  "original_registration": "https://osf.io/4nme3/",
+  "externally_registered": false,
+  "evidence": [
+    {
+      "raw_file": "runs/main-v1/typesafe/screening/20260923T184231830808Z.jsonl",
+      "raw_file_sha256": "16d4a2713042fb97daccec0237214b74c49a618b02a37abedf38ca1cf6e66f8a",
+      "schedule_id": "0920c4e27cd212adbcf7e82cccf34271dca76b3f505f8f42f82cb29b6295b26a",
+      "request_sha256": "a6c1a084605ecbffb5419df04594f265d5e57428264f37a2a73436649214a339",
+      "started_at": "2026-09-23T18:48:06.195473+00:00",
+      "response": {
+        "detail": {
+          "error_type": "system_overloaded",
+          "message": "We are currently experiencing high traffic and cannot process your request. Please try again later."
+        }
+      }
+    }
+  ],
+  "jev_status_counts_before_amendment": {
+    "200": 483,
+    "None": 1,
+    "529": 1
+  },
+  "reference_usage_receipts_before_amendment": {
+    "anthropic": 980,
+    "together": 658
+  },
+  "files": {
+    "amendments/001-overload-529.md": "a5a524384107b0416537b39e0c9c5bdce1eb0862512fda0803b7e76067508f4f",
+    "preflight/amendment001.py": "7b4bab96922b7f8e11fdf5da7a21e3503ce98b39ed0f08a231735dd69d6c8be7",
+    "tests/test_amendment001.py": "0f0098b1b5e785db23320ad3f646a7478d1bcdffaa9bee66293e8bcff4d928fe"
+  }
+}

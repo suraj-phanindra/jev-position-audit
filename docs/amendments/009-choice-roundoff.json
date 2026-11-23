@@ -1,0 +1,18 @@
+{
+  "amendment_id": "009-choice-roundoff",
+  "recorded_at": "2026-09-27T12:11:22.339936+00:00",
+  "original_registration": "https://osf.io/4nme3/",
+  "externally_registered": false,
+  "activation_status": "recorded_before_activation",
+  "files": {
+    "amendments/009-choice-roundoff.md": "c71351307647de0d6b2647e4673a84b1265b0f353b0c7a9af8a667e803caaf89",
+    "preflight/amendment009.py": "72b317b1d6e36ecc92b5a843221fabeb47e35b008296ba2cbc2a51eb5d288a4c",
+    "tests/test_amendment009.py": "4b6b4c753595deafae8c3db04703912d113e4b63bc2da7712ea7b9aa77b6d9f2",
+    "amendments/008-http-520.json": "fdb43d1317f8ed1d827cf3fbc7ea26a932c56f5dff3538c3f5e9470662660594"
+  },
+  "validation": {
+    "tests_passed": 17,
+    "command": ".venv/bin/python -m unittest tests.test_amendment009 tests.test_amendment008 tests.test_scheduled_recovery tests.test_operator_recovery tests.test_recovery_supervisor tests.test_scheduled_pause tests.test_billing"
+  },
+  "information_reviewed": "One rejected response and synthetic tests; no main effect estimates."
+}

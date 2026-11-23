@@ -1,0 +1,1 @@
+{"kind": "centered_beta", "sims": 20000, "draws": 9999, "rate_05": {"boot": 0.0597, "flip": 0.05635, "max": 0.05625}, "rate_005": {"boot": 0.0091, "flip": 0.0088, "max": 0.0085}, "coverage95": 0.9426, "seconds": 1205}

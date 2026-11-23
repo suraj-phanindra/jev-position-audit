@@ -1,0 +1,19 @@
+{
+  "amendment_id": "005-idle-checkpoint",
+  "recorded_at": "2026-09-23T22:11:09.389979+00:00",
+  "original_registration": "https://osf.io/4nme3/",
+  "externally_registered": false,
+  "original_index_sha256": "6f91554686e9e81fd18e47c22eb282dac9ac4a7d736faa793d0fb8f803bb8df0",
+  "files": {
+    "preflight/idle_pause.py": "db6089dc8fe197b223bedaaaf300a99697855f8cacc08c08f0f6abbe0b5d6adb",
+    "tests/test_idle_pause.py": "a94ed785f26cb8b04ba8f86ab08f669ba484e3ded5387c415ec9ace68beaedb6",
+    "amendments/005-idle-checkpoint.md": "65fc7287c56e51d1003682e1dc1b992a60ccc3f242922fa397b7c8e4bc03c918"
+  },
+  "validation": {
+    "tests_passed": 52,
+    "log": "preflight/generated/idle-pause-tests-20260923.log",
+    "log_sha256": "5278f02a8b39e2e06e56331d76d45295b6622aa699569dbf754d83ea2293bdf0",
+    "original_registered_source": "unchanged, verified"
+  },
+  "information_reviewed": "Process identities, request accounting, and synthetic tests only; no main effect estimates or hypothesis tests."
+}

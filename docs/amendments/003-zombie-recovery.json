@@ -1,0 +1,73 @@
+{
+  "amendment_id": "003-zombie-recovery",
+  "recorded_at": "2026-09-23T20:53:15.340171+00:00",
+  "original_registration": "https://osf.io/4nme3/",
+  "externally_registered": false,
+  "original_index_sha256": "6f91554686e9e81fd18e47c22eb282dac9ac4a7d736faa793d0fb8f803bb8df0",
+  "amendment002_sha256": "663cb281c534f7863cf72d90eb9e7b4cb8512a4bc5c45ced2bfc251259892744",
+  "previous_supervisor_stop": "runs/main-v1/recovery-supervisor-stop-20260923T2051.json",
+  "limits": {
+    "max_recovery_invocations_per_session": 100,
+    "max_hours_per_session": 6,
+    "max_total_attempts_per_scheduled_draw": 3
+  },
+  "information_reviewed": "Operating-system process state, terminal records, status and usage only; no main effect estimates or hypothesis tests.",
+  "ledger_status_counts": [
+    [
+      "anthropic",
+      null,
+      4
+    ],
+    [
+      "anthropic",
+      "reported_usage_at_conservative_list_rate",
+      13397
+    ],
+    [
+      "anthropic",
+      "unknown_charged_at_reserve",
+      2
+    ],
+    [
+      "together",
+      "reported_usage_at_conservative_list_rate",
+      9775
+    ],
+    [
+      "together",
+      "unknown_charged_at_reserve",
+      17
+    ],
+    [
+      "typesafe",
+      "reported_usage_at_conservative_list_rate",
+      2009
+    ],
+    [
+      "typesafe",
+      "unknown_charged_at_reserve",
+      18
+    ]
+  ],
+  "charged_or_reserved_usd": 25.230940518,
+  "spending_cap_usd": 300.0,
+  "files": {
+    "amendments/003-zombie-recovery.md": "afd920eda3fa05cb491c78c9648200ece308081e127810b1912c0ed103152000",
+    "preflight/recover.py": "ff50969c460e334f6bc2c31eaf5ea80026a409283764d3762b0c315d43b252b5",
+    "preflight/supervise_recovery.py": "acd69ded5804e1681ebc30824f01640f864b893a72cda28432d73012591020f9",
+    "tests/test_operator_recovery.py": "4c30bc176d26a7bf8ea2c5abc4071e8bfc395abedcadfe6d876319f3be660f01",
+    "tests/test_recovery_supervisor.py": "1d1c8a1d50bdc67cf421879aa5386acb70ca5701a86c08e905094fa2a11daf7e",
+    "amendments/002-source-snapshot/amendments/002-bounded-recovery.md": "fe440b3e000d5533e932576fa326f3ad46e9e66d26c94ecee2988c1d88836413",
+    "amendments/002-source-snapshot/preflight/supervise_recovery.py": "66a148df9d281f3c9b9323ba751caa296c15597a385107965644f4b41503320e",
+    "amendments/002-source-snapshot/preflight/recover.py": "bacc96b370da776630369de11c9d16e105c5523b7edad54d33ce9818516f5ae2",
+    "amendments/002-source-snapshot/tests/test_recovery_supervisor.py": "841c55fad21f0f3a42fc5b1b5101a7f54e2edcb37ca41948a981ce9d9c5dea39",
+    "amendments/002-source-snapshot/tests/test_operator_recovery.py": "eae21af2ac4ab281f28a2932c2e630521f6190efa0bf8f5e088f30f4bb28312c"
+  },
+  "validation": {
+    "test_count": 47,
+    "result": "passed",
+    "log": "preflight/generated/amendment003-tests-20260923.log",
+    "log_sha256": "44b270e1f48e4897569c72ad6e3ed9c3de6f1ff5c3c5182a8513ed5600eea8dd",
+    "original_registration_check": "passed before activation"
+  }
+}

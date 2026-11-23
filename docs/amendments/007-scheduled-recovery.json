@@ -1,0 +1,31 @@
+{
+  "amendment_id": "007-scheduled-recovery",
+  "recorded_at": "2026-09-24T15:45:40.800989+00:00",
+  "original_registration": "https://osf.io/4nme3/",
+  "externally_registered": false,
+  "activation_status": "recorded_before_activation",
+  "files": {
+    "amendments/007-scheduled-recovery.md": "6d50c91067a674881974a70795a0dd85626e00613659bf5568538e6073b318c6",
+    "preflight/supervise_scheduled.py": "cc8e3abb58a227554db3790e4717778a598046f4ac4e09915bfdf66b9cee7c42",
+    "tests/test_scheduled_recovery.py": "8f2c34bfaf246e7d9157ecd3f780af2d59477232e93a82e018a2b31b3adf1679",
+    "preflight/scheduled_pause.py": "68d72248065035b9995e987a7e8b2b191e96efdb4e7f63f67def7111753c38cf",
+    "tests/test_scheduled_pause.py": "e8e0fddc237ca20571da446a27c0e2d242caca7a25d1b7c7f7025e147214d65b",
+    "preflight/recover.py": "ff50969c460e334f6bc2c31eaf5ea80026a409283764d3762b0c315d43b252b5",
+    "preflight/supervise_recovery.py": "acd69ded5804e1681ebc30824f01640f864b893a72cda28432d73012591020f9",
+    "preflight/reservation_pause.py": "c7d46dfa0c77475098b3e7eb42a6a69c572faea42514a43af92fcbfaa2402c84",
+    "amendments/003-zombie-recovery.json": "bb4445105708f1d88700ee330e2834d73e853a63b6ad443517de9f8b1dd43651",
+    "amendments/004-scheduled-pause.json": "e637da66fc1ab46ff08b2ba444166904d6c4eab9cb68de8b312d22ffa3d22372",
+    "amendments/006-reservation-barrier.json": "50bb2cab68edd653bf41036be4a52c312ef0f1fa4886a695c4f9bb09f43c8477",
+    "preflight/generated/resume-tests-20260924.log": "be4b9b10295d8373f4f9a7095025d31fdffbc920ffba76601ee76a279d19f591"
+  },
+  "limits": {
+    "max_hours_per_session": 6,
+    "max_recovery_invocations_per_session": 100,
+    "max_total_attempts_per_draw": 3
+  },
+  "validation": {
+    "tests_passed": 55,
+    "checkpoint": "runs/main-v1/resume-checkpoint-20260924.json"
+  },
+  "information_reviewed": "Operational history and synthetic tests only; no main effect estimates or hypothesis tests."
+}

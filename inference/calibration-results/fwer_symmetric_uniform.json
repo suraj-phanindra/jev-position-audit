@@ -1,0 +1,1 @@
+{"kind": "symmetric_uniform", "sims": 2000, "draws": 9999, "m": 10, "rho": 0.5, "fwer_boot": 0.0515, "fwer_max": 0.0455, "seconds": 1201}

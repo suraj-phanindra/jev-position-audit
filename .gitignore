@@ -1,0 +1,10 @@
+.env
+.env.*
+.venv/
+__pycache__/
+*.pyc
+runs/
+stimuli/raw/
+stimuli/prepared*/
+results/main-results-*.json
+.DS_Store
